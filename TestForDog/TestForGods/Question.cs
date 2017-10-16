@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestForGods
 {
-    class TestViewModel
+    class Question
     {
-
     }
 }

@@ -7,6 +7,5 @@ using System.Threading.Tasks;
 namespace TestForDog
 {
     public class Class1
-    {
-    }
+    {    }
 }
