@@ -49,8 +49,6 @@ namespace TestForGods
                 DoPropertyChanged("Question");
             }
         }
-
-
         public event PropertyChangedEventHandler PropertyChanged;
         public void DoPropertyChanged(string name)
         {
