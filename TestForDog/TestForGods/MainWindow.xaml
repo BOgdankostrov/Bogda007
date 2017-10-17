@@ -55,7 +55,7 @@
                                  рассказать массу интересного о пушистых любимцах."/></TextBlock>
                                 <Border Height="20"></Border>
                                 <TextBlock FontSize="37"><Run Text="В PURINA® PRO PLAN® в восторге от вашей эрудиции!"/></TextBlock>
-                                <Border Height="110"></Border>
+                                <Border Height="80"></Border>
                                 <Button Style="{StaticResource BeginButton}" Width="400"  Height="100" >
                                     <Label Content="Завершить" FontSize="55" HorizontalAlignment="Center" FontWeight="Medium" VerticalAlignment="Center" Foreground="White"></Label>
                                 </Button>
@@ -64,7 +64,7 @@
                     </Grid>
                 </Border>
             </Grid>
-            <Grid x:Name="TestPage">
+            <Grid x:Name="TestPage" Visibility="Visible">
                 <Border BorderThickness="0,20,0,40" BorderBrush="#FFE84B43">
                     <Grid Margin="0,25,0,0" VerticalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
@@ -94,7 +94,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Grid Height="500" VerticalAlignment="Top">
-                                <Image x:Name="TestPicture" Height="480" Margin="0,0,0,20" Source="Images/ImageForTest/1.jpg"></Image>
+                                <Image x:Name="TestPicture" Height="480" Margin="0,0,0,20" Source="{Binding CurrentQuestion.ImageSource}"></Image>
                             </Grid>
                             <Grid Height="220" Grid.Row="1" Width="{Binding ElementName=TestPicture, Path=ActualWidth}">
                                 <TextBlock FontFamily="Fonts/Scada/#Scada" 
