@@ -11,14 +11,27 @@ namespace TestForGods
     {
         private string value;
         private bool win;
-        private bool visible;
+        private string visible="Hidden";
         private string explanation;
+        private string color = "Transparent";
         public Option(string value, string expanation, bool win)
         {
             this.Value = value;
             this.explanation = explanation;
             this.win = win;
-            visible = false;
+            
+        }
+        public string Color
+        {
+            get
+            {
+                return color;
+            }
+            set
+            {
+                this.color = value;
+                DoPropertyChanged("Color");
+            }
         }
         public bool Win
         {
@@ -29,9 +42,10 @@ namespace TestForGods
             set
             {
                 this.win = value;
+                DoPropertyChanged("Win");
             }
         }
-        public bool Visible
+        public string Visible
         {
             get
             {
@@ -40,6 +54,7 @@ namespace TestForGods
             set
             {
                 this.visible = value;
+                DoPropertyChanged("Visible");
             }
         }
         public string Explanation
@@ -51,6 +66,7 @@ namespace TestForGods
             set
             {
                 this.explanation = value;
+                DoPropertyChanged("Explanation");
             }
         }
         public string Value {
@@ -61,6 +77,7 @@ namespace TestForGods
             set
             {
                 this.value = value;
+                DoPropertyChanged("Value");
             }
         }
 
