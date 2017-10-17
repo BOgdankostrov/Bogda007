@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestForDog
+namespace TestForGods
 {
-    public class Class1
-    {    }
+    class Test
+    {
+    }
 }
