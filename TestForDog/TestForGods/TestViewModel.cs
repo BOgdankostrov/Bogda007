@@ -8,36 +8,83 @@ using System.Threading.Tasks;
 namespace TestForGods
 {
     
-    class TestViewModel : INotifyPropertyChanged
+    public class TestViewModel : INotifyPropertyChanged
     {
-        const int QUESTIONSAMOUNT=10;
+        
+        
         private Question currentquestion;
         private List<Question> questions;
-       private int index=0;
+       private int index;
+       private int countTrueAnser;
 
-        int countTrueAnser = 0;
+        public int Index
+        {
+            get
+            {
+                return index;
+            }
+            set
+            {
+                this.index = value;
+                DoPropertyChanged("Index");
+            }
+        }
+        public int CountTrueAnser
+        {
+            get
+            {
+                return countTrueAnser;
+            }
+            set
+            {
+                this.countTrueAnser = value;
+                DoPropertyChanged("CountTrueAnser");
+            }
+        }
 
 
-          
         public TestViewModel()
         {
-            
-            questions = new List<Question>();
-            move();
+
+            newTest();
 
         }
+
+        private void newTest()
+        {
+            Index = 0;
+            countTrueAnser = 0;
+            LoadAsk t = new LoadAsk();
+            questions = t.GetListQuestion();
+            move();
+            
+        }
+
          public void move()
         {
-            index++;
-            currentquestion = questions[index];
+            Index++;
+            if (index<11)
+            {
+                CurrentQuestion = questions[index-1];
+            }
+            else
+            {
+                newTest();
+                //открытие результатов 
+            }
+
 
         }
          
         public void choose(int i)
         {
-            //if(currentquestion.)
+            if(currentquestion.CheckAnswer(i))
+            {
+                countTrueAnser++;
+            }
         }
-        public Question Question
+
+        public Question CurrentQuestion
         {
             get
             {
@@ -46,10 +93,38 @@ namespace TestForGods
             set
             {
                 this.currentquestion = value;
-                DoPropertyChanged("Question");
+                DoPropertyChanged("CurrentQuestion");
+            }
+        }
+        //переход
+        private RelayCommand next;
+        public RelayCommand Next
+        {
+            get
+            {
+                return next ??
+                  (next = new RelayCommand(obj =>
+                  {
+                      move();
+                  }));
             }
         }
 
+        // выбор ответа 
+        private RelayCommand click;
+        public RelayCommand Click
+        {
+            get
+            {
+                return click ??
+                  (click = new RelayCommand(obj =>
+                  {
+                      int  ans = int.Parse( obj.ToString());
+                      choose(ans);
+                      
+                  }));
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void DoPropertyChanged(string name)

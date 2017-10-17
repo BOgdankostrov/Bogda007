@@ -10,7 +10,25 @@ namespace TestForGods
 {
    public class Question:INotifyPropertyChanged
     {
-        public string question { get; set; }
+      const  string  COLORTRUE = "#FF2E6C47";
+      const  string COLORFALSE = "#FFE84B43";
+        const string HIDDDEN = "Hidden";
+        const string VISIBILITY = "Visibility";
+        // const  string TRANSPARENT = "Transparent";
+
+        private string question;
+        public string QuestionText
+        {
+            get
+            {
+                return question;
+            }
+            set
+            {
+                this.question = value;
+                DoPropertyChanged("Question");
+            }
+        }
         public List<Option> options { get; set; }
         public Question(string question, List<Option> listOptions)
         {
@@ -26,12 +44,31 @@ namespace TestForGods
         }
         public bool CheckAnswer(int i)
         {
-            if(options[i].Win =true)
+            setColorAndVisible();
+            if(options[i].Win == true)
             {
                 return true;
             }
             return false;
         }
+        public void setColorAndVisible()
+        {
+            for (int i = 0; i < options.Count; i++)
+            {
+                if(options[i].Win==true)
+                {
+                    options[i].Color = COLORTRUE;
+                    options[i].Visible = VISIBILITY;
+                }
+                else
+                {
+                    options[i].Color = COLORFALSE;
+                }
+
+            }
+            
+        }
+        
         
     }
 }

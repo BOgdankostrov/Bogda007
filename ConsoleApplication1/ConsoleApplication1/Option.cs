@@ -5,33 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestForGods
+namespace ConsoleApplication1
 {
-   public class Option:INotifyPropertyChanged
+    public class Option : INotifyPropertyChanged
     {
         private string value;
         private bool win;
-        private string visible="Hidden";
+        private bool visible;
         private string explanation;
-        private string color = "Transparent";
         public Option(string value, string expanation, bool win)
         {
             this.Value = value;
             this.explanation = explanation;
             this.win = win;
-            
-        }
-        public string Color
-        {
-            get
-            {
-                return color;
-            }
-            set
-            {
-                this.color = value;
-                DoPropertyChanged("Color");
-            }
+            visible = false;
         }
         public bool Win
         {
@@ -42,10 +29,9 @@ namespace TestForGods
             set
             {
                 this.win = value;
-                DoPropertyChanged("Win");
             }
         }
-        public string Visible
+        public bool Visible
         {
             get
             {
@@ -54,7 +40,6 @@ namespace TestForGods
             set
             {
                 this.visible = value;
-                DoPropertyChanged("Visible");
             }
         }
         public string Explanation
@@ -66,10 +51,10 @@ namespace TestForGods
             set
             {
                 this.explanation = value;
-                DoPropertyChanged("Explanation");
             }
         }
-        public string Value {
+        public string Value
+        {
             get
             {
                 return value;
@@ -77,7 +62,6 @@ namespace TestForGods
             set
             {
                 this.value = value;
-                DoPropertyChanged("Value");
             }
         }
 
@@ -85,9 +69,9 @@ namespace TestForGods
 
         public void DoPropertyChanged(string name)
         {
-            if(PropertyChanged!=null)
+            if (PropertyChanged != null)
             {
-                PropertyChanged(this, new  PropertyChangedEventArgs(name));
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
     }
