@@ -18,7 +18,7 @@
     </Window.Resources>
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid Width="1920" Height="1080">
-            <Grid x:Name="FinalPage">
+            <Grid x:Name="FinalPage" Visibility="Collapsed">
                 <Border BorderThickness="0,20,0,40" BorderBrush="#FFE84B43">
                     <Grid Margin="0,60,0,0" VerticalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
@@ -64,9 +64,9 @@
                     </Grid>
                 </Border>
             </Grid>
-            <Grid x:Name="TestPage" Visibility="Collapsed">
+            <Grid x:Name="TestPage">
                 <Border BorderThickness="0,20,0,40" BorderBrush="#FFE84B43">
-                    <Grid Margin="0,60,0,0" VerticalAlignment="Stretch">
+                    <Grid Margin="0,25,0,0" VerticalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition Width="1200"/>
@@ -96,17 +96,20 @@
                             <Grid Height="500" VerticalAlignment="Top">
                                 <Image x:Name="TestPicture" Height="480" Margin="0,0,0,20" Source="Images/ImageForTest/1.jpg"></Image>
                             </Grid>
-                            <Grid Height="170" Grid.Row="1" Width="{Binding ElementName=TestPicture, Path=ActualWidth}">
+                            <Grid Height="220" Grid.Row="1" Width="{Binding ElementName=TestPicture, Path=ActualWidth}">
                                 <TextBlock FontFamily="Fonts/Scada/#Scada" 
                                            VerticalAlignment="Center" 
                                            Foreground="#000000" 
-                                           FontSize="55" 
+                                           FontSize="50"
                                            FontWeight="Light" 
                                            TextWrapping="Wrap" 
                                            Text="{Binding CurrentQuestion.QuestionText}">
+                                    <TextBlock.RenderTransform>
+                                        <ScaleTransform ScaleY="0.9"></ScaleTransform>
+                                    </TextBlock.RenderTransform>
                                 </TextBlock>
                             </Grid>
-                            <Grid Grid.Row="2" Margin="60,0,0,40">
+                            <Grid Grid.Row="2" Margin="40,0,0,30">
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -123,7 +126,11 @@
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
                                             <Ellipse Width="75" Height="75" Stroke="#FFE84B43" StrokeThickness="3" Fill="{Binding CurrentQuestion.options[0].Color }"></Ellipse>
-                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="{Binding CurrentQuestion.options[0].Value }" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48"></TextBlock>
+                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="{Binding CurrentQuestion.options[0].Value }" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48">
+                                                <TextBlock.RenderTransform>
+                                                    <ScaleTransform ScaleY="0.95"></ScaleTransform>
+                                                </TextBlock.RenderTransform>
+                                            </TextBlock>
                                         </Grid>
                                     </Button>
                                 </Grid>
@@ -135,7 +142,11 @@
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
                                             <Ellipse Width="75" Height="75" Stroke="#FFE84B43" StrokeThickness="3" Fill="{Binding CurrentQuestion.options[1].Color }"></Ellipse>
-                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="{Binding CurrentQuestion.options[1].Value }" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48"></TextBlock>
+                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="{Binding CurrentQuestion.options[1].Value }" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48">
+                                                <TextBlock.RenderTransform>
+                                                    <ScaleTransform ScaleY="0.95"></ScaleTransform>
+                                                </TextBlock.RenderTransform>
+                                            </TextBlock>
                                         </Grid>
                                     </Button>
                                 </Grid>
@@ -147,7 +158,11 @@
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
                                             <Ellipse Width="75" Height="75" Stroke="#FFE84B43" StrokeThickness="3" Fill="{Binding CurrentQuestion.options[2].Color }"></Ellipse>
-                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="{Binding CurrentQuestion.options[2].Value }" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48"></TextBlock>
+                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="{Binding CurrentQuestion.options[2].Value }" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48">
+                                                <TextBlock.RenderTransform>
+                                                    <ScaleTransform ScaleY="0.95"></ScaleTransform>
+                                                </TextBlock.RenderTransform>
+                                            </TextBlock>
                                         </Grid>
                                     </Button>
                                 </Grid>
@@ -159,7 +174,11 @@
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
                                             <Ellipse Width="75" Height="75" Stroke="#FFE84B43" StrokeThickness="3" Fill="{Binding CurrentQuestion.options[3].Color }"></Ellipse>
-                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="{Binding CurrentQuestion.options[3].Value }" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48"></TextBlock>
+                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="{Binding CurrentQuestion.options[3].Value }" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48">
+                                                <TextBlock.RenderTransform>
+                                                    <ScaleTransform ScaleY="0.95"></ScaleTransform>
+                                                </TextBlock.RenderTransform>
+                                            </TextBlock>
                                         </Grid>
                                     </Button>
                                 </Grid>
@@ -168,45 +187,45 @@
                         <Button Grid.Column="2" Command="{Binding Next}">
                             <Image Source="Images/all.jpg" Width="113"></Image>
                         </Button>
-                        <Grid Grid.ColumnSpan="3" Width="400" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,680,0,0" Visibility="Collapsed">
+                        <Grid Grid.ColumnSpan="3" Width="400" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,750,0,0" Visibility="{Binding CurrentQuestion.options[0].Visible}">
                             <Border HorizontalAlignment="Right" Background="#FF2E6C47" Width="Auto" CornerRadius="20" Padding="20" Margin="0,0,40,0" MaxWidth="360">
                                 <TextBlock TextWrapping="Wrap" 
                                            FontSize="22" 
                                            FontFamily="Fonts/Scada/#Scada"
-                                           Text="США по праву может считаться 'кошачьим Китаем'. Количество мурчащих жителей здесь составляет 76,5 миллионов. В среднем в каждой третьей семье живет по 2 кошки."
+                                           Text="{Binding Path=CurrentQuestion.options[0].Explanation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                            Foreground="#ffffff">
                                 </TextBlock>
                             </Border>
                             <Polygon Points="0,0,65,0,20,40,0,0" Fill="#FF2E6C47" HorizontalAlignment="Right"></Polygon>
                         </Grid>
-                        <Grid Grid.ColumnSpan="3" Width="400" Height="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,0,60" Visibility="Collapsed">
+                        <Grid Grid.ColumnSpan="3" Width="400" Height="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,0,60" Visibility="{Binding CurrentQuestion.options[2].Visible}">
                             <Border HorizontalAlignment="Right" Background="#FF2E6C47" Width="Auto" CornerRadius="20" Padding="20" Margin="0,0,40,0" MaxWidth="360">
                                 <TextBlock TextWrapping="Wrap" 
                                            FontSize="22" 
                                            FontFamily="Fonts/Scada/#Scada"
-                                           Text="США по праву может считаться 'кошачьим Китаем'. Количество мурчащих жителей здесь составляет 76,5 миллионов. В среднем в каждой третьей семье живет по 2 кошки."
+                                           Text="{Binding Path=CurrentQuestion.options[2].Explanation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                            Foreground="#ffffff">
                                 </TextBlock>
                             </Border>
                             <Polygon Points="0,40,65,40,20,0,0,40" Fill="#FF2E6C47" VerticalAlignment="Bottom" HorizontalAlignment="Right"></Polygon>
                         </Grid>
-                        <Grid Grid.ColumnSpan="3" Width="380" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,680,20,0" Visibility="Collapsed">
+                        <Grid Grid.ColumnSpan="3" Width="380" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,750,20,0" Visibility="{Binding CurrentQuestion.options[1].Visible}">
                             <Border HorizontalAlignment="Left" Background="#FF2E6C47" Width="Auto" CornerRadius="20" Padding="20" Margin="40,0,0,0" MaxWidth="340">
                                 <TextBlock TextWrapping="Wrap" 
                                            FontSize="22" 
                                            FontFamily="Fonts/Scada/#Scada"
-                                           Text="США по праву может считаться 'кошачьим Китаем'. Количество мурчащих жителей здесь составляет 76,5 миллионов. В среднем в каждой третьей семье живет по 2 кошки."
+                                           Text="{Binding Path=CurrentQuestion.options[1].Explanation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                            Foreground="#ffffff">
                                 </TextBlock>
                             </Border>
                             <Polygon Points="0,0,65,0,45,40,0,0" Fill="#FF2E6C47" VerticalAlignment="Top" HorizontalAlignment="Left"></Polygon>
                         </Grid>
-                        <Grid Grid.ColumnSpan="3" Width="380" Height="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,40">
+                        <Grid Grid.ColumnSpan="3" Width="380" Height="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,60" Visibility="{Binding CurrentQuestion.options[3].Visible}">
                             <Border HorizontalAlignment="Left" Background="#FF2E6C47" Width="Auto" CornerRadius="20" Padding="20" Margin="40,0,0,0" MaxWidth="340">
                                 <TextBlock TextWrapping="Wrap" 
                                            FontSize="22" 
                                            FontFamily="Fonts/Scada/#Scada"
-                                           Text="США по праву может считаться 'кошачьим Китаем'. Количество мурчащих жителей здесь составляет 76,5 миллионов. В среднем в каждой третьей семье живет по 2 кошки."
+                                           Text="{Binding Path=CurrentQuestion.options[3].Explanation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                            Foreground="#ffffff">
                                 </TextBlock>
                             </Border>

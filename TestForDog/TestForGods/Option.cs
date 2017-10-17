@@ -14,7 +14,7 @@ namespace TestForGods
         private string visible="Hidden";
         private string explanation;
         private string color = "Transparent";
-        public Option(string value, string expanation, bool win)
+        public Option(string value, string explanation, bool win)
         {
             this.Value = value;
             this.explanation = explanation;
