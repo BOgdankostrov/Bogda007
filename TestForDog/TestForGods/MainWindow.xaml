@@ -18,17 +18,53 @@
     </Window.Resources>
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid Width="1920" Height="1080">
-            <Grid.Resources>
-                <DataTemplate x:Key="ChooseTemplate">
-                    <Button>
-                        <Grid>
-                            
+            <Grid x:Name="FinalPage">
+                <Border BorderThickness="0,20,0,40" BorderBrush="#FFE84B43">
+                    <Grid Margin="0,60,0,0" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="1100"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid VerticalAlignment="Top">
+                            <Image Source="Images/logo.jpg" Width="265" Margin="0,25,0,0" VerticalAlignment="Top"></Image>
                         </Grid>
-                    </Button>
-                </DataTemplate>
-            </Grid.Resources>
-            <Grid x:Name="FinalPage"></Grid>
-            <Grid x:Name="TestPage">
+                        <Grid Grid.Column="1">
+                            <StackPanel Height="700" Orientation="Vertical">
+                               <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                                <TextBlock FontWeight="Bold" FontFamily="Fonts/Scada/#Scada" Foreground="Black" FontSize="75" Text="Вы "></TextBlock>
+                                <TextBlock FontWeight="ExtraBold" FontFamily="Fonts/Scada/#Scada"  FontSize="75" Text="PRO" Foreground="#FFE84B43"></TextBlock>
+                                <TextBlock FontWeight="Bold" FontFamily="Fonts/Scada/#Scada" Foreground="Black" Text="грессивный ветеринар!" FontSize="75" ></TextBlock>
+                            </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock VerticalAlignment="Bottom" Margin="0,0,15,0" Foreground="#FFE84B43" FontFamily="Fonts/Source Sans Pro/#Source Sans Pro" FontWeight="Regular" FontSize="140" Text="8">
+                                        <TextBlock.RenderTransform>
+                                            <ScaleTransform CenterX="40"></ScaleTransform>
+                                        </TextBlock.RenderTransform>
+                                    </TextBlock>
+                                    <TextBlock  Foreground="#FFE84B43" FontFamily="Fonts/Source Sans Pro/#Source Sans Pro" FontWeight="Regular" FontSize="125" Text="/"></TextBlock>
+                                    <TextBlock VerticalAlignment="Bottom" Margin="15,0,0,0" FontFamily="Fonts/Source Sans Pro/#Source Sans Pro" Foreground="#FFE84B43" FontWeight="Regular" FontSize="125" Text="10">
+                                        <TextBlock.RenderTransform>
+                                            <RotateTransform Angle="1" CenterX="0"/>
+                                        </TextBlock.RenderTransform>
+                                    </TextBlock>
+                                </StackPanel>
+                                <Border Height="40"></Border>
+                                <TextBlock TextWrapping="Wrap" FontSize="37"><Run Text="Вы просто гений, аплодируем стоя! Как настоящий эксперт, вы 
+                                    интрересуетесь всеми аспектами своей профессии и можете 
+                                 рассказать массу интересного о пушистых любимцах."/></TextBlock>
+                                <Border Height="20"></Border>
+                                <TextBlock FontSize="37"><Run Text="В PURINA® PRO PLAN® в восторге от вашей эрудиции!"/></TextBlock>
+                                <Border Height="110"></Border>
+                                <Button Style="{StaticResource BeginButton}" Width="400"  Height="100" >
+                                    <Label Content="Завершить" FontSize="55" HorizontalAlignment="Center" FontWeight="Medium" VerticalAlignment="Center" Foreground="White"></Label>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+            <Grid x:Name="TestPage" Visibility="Collapsed">
                 <Border BorderThickness="0,20,0,40" BorderBrush="#FFE84B43">
                     <Grid Margin="0,60,0,0" VerticalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
