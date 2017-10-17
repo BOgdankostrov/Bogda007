@@ -16,17 +16,8 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden">
         <Grid Width="1920" Height="1080">
-            <Grid.Resources>
-                <DataTemplate x:Key="ChooseTemplate">
-                    <Button>
-                        <Grid>
-                            
-                        </Grid>
-                    </Button>
-                </DataTemplate>
-            </Grid.Resources>
             <Grid x:Name="FinalPage"></Grid>
             <Grid x:Name="TestPage">
                 <Border BorderThickness="0,20,0,40" BorderBrush="#FFE84B43">
@@ -132,6 +123,50 @@
                         <Button Grid.Column="2">
                             <Image Source="Images/all.jpg" Width="113"></Image>
                         </Button>
+                        <Grid Grid.ColumnSpan="3" Width="400" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,680,0,0" Visibility="Collapsed">
+                            <Border HorizontalAlignment="Right" Background="#FF2E6C47" Width="Auto" CornerRadius="20" Padding="20" Margin="0,0,40,0" MaxWidth="360">
+                                <TextBlock TextWrapping="Wrap" 
+                                           FontSize="22" 
+                                           FontFamily="Fonts/Scada/#Scada"
+                                           Text="США по праву может считаться 'кошачьим Китаем'. Количество мурчащих жителей здесь составляет 76,5 миллионов. В среднем в каждой третьей семье живет по 2 кошки."
+                                           Foreground="#ffffff">
+                                </TextBlock>
+                            </Border>
+                            <Polygon Points="0,0,65,0,20,40,0,0" Fill="#FF2E6C47" HorizontalAlignment="Right"></Polygon>
+                        </Grid>
+                        <Grid Grid.ColumnSpan="3" Width="400" Height="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,0,60" Visibility="Collapsed">
+                            <Border HorizontalAlignment="Right" Background="#FF2E6C47" Width="Auto" CornerRadius="20" Padding="20" Margin="0,0,40,0" MaxWidth="360">
+                                <TextBlock TextWrapping="Wrap" 
+                                           FontSize="22" 
+                                           FontFamily="Fonts/Scada/#Scada"
+                                           Text="США по праву может считаться 'кошачьим Китаем'. Количество мурчащих жителей здесь составляет 76,5 миллионов. В среднем в каждой третьей семье живет по 2 кошки."
+                                           Foreground="#ffffff">
+                                </TextBlock>
+                            </Border>
+                            <Polygon Points="0,40,65,40,20,0,0,40" Fill="#FF2E6C47" VerticalAlignment="Bottom" HorizontalAlignment="Right"></Polygon>
+                        </Grid>
+                        <Grid Grid.ColumnSpan="3" Width="380" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,680,20,0" Visibility="Collapsed">
+                            <Border HorizontalAlignment="Left" Background="#FF2E6C47" Width="Auto" CornerRadius="20" Padding="20" Margin="40,0,0,0" MaxWidth="340">
+                                <TextBlock TextWrapping="Wrap" 
+                                           FontSize="22" 
+                                           FontFamily="Fonts/Scada/#Scada"
+                                           Text="США по праву может считаться 'кошачьим Китаем'. Количество мурчащих жителей здесь составляет 76,5 миллионов. В среднем в каждой третьей семье живет по 2 кошки."
+                                           Foreground="#ffffff">
+                                </TextBlock>
+                            </Border>
+                            <Polygon Points="0,0,65,0,45,40,0,0" Fill="#FF2E6C47" VerticalAlignment="Top" HorizontalAlignment="Left"></Polygon>
+                        </Grid>
+                        <Grid Grid.ColumnSpan="3" Width="380" Height="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,40">
+                            <Border HorizontalAlignment="Left" Background="#FF2E6C47" Width="Auto" CornerRadius="20" Padding="20" Margin="40,0,0,0" MaxWidth="340">
+                                <TextBlock TextWrapping="Wrap" 
+                                           FontSize="22" 
+                                           FontFamily="Fonts/Scada/#Scada"
+                                           Text="США по праву может считаться 'кошачьим Китаем'. Количество мурчащих жителей здесь составляет 76,5 миллионов. В среднем в каждой третьей семье живет по 2 кошки."
+                                           Foreground="#ffffff">
+                                </TextBlock>
+                            </Border>
+                            <Polygon Points="0,40,65,40,45,0,0,40" Fill="#FF2E6C47" VerticalAlignment="Bottom" HorizontalAlignment="Left"></Polygon>
+                        </Grid>
                     </Grid>
                 </Border>
             </Grid>

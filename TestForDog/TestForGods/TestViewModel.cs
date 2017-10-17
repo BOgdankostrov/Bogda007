@@ -35,7 +35,7 @@ namespace TestForGods
          
         public void choose(int i)
         {
-            if(currentquestion.)
+            //if(currentquestion.)
         }
         public Question Question
         {
