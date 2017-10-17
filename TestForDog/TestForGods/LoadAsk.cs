@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TestForGods
 {
-    class LoadAsk
+   public class LoadAsk
     {
-        public List<Question> ListOfAsk { get; set; }
+        private List<Question> ListOfAsk { get; set; }
         public LoadAsk()
         {
             ListOfAsk = new List<TestForGods.Question>()
@@ -35,12 +35,12 @@ namespace TestForGods
                 new Option ("420 котят", "В это сложно поверить, но пушистый Казанова - отец 420 котят!", true),
                 new Option ("500 котят", null, false),
               }),
-              new Question ("Какая самая дорогая порода собак", new List<TestForGods.Option>()
+              new Question ("Какая самая дорогая порода собак?", new List<TestForGods.Option>()
               {
                 new TestForGods.Option("лион бишон",null, false),
                 new Option("фараонова собака", null, false),
                 new Option ("тибетский мастиф", "Приготовьте 8 тысяч долларов, если хотите похвастаться красавчиком тибетским мастифом, представителем самой дорогой породы собак в мире!", true),
-                new Option ("500 котят", null, false),
+                new Option ("аффенпинчер", null, false),
               }),
               new Question ("В какой стране черная кошка, перебежавшая вам дорогу, считается хорошей приметой?", new List<TestForGods.Option>()
               {
@@ -52,7 +52,7 @@ namespace TestForGods
               new Question ("Как называется станция в Японии, на которой установлен знаменитый памятник самому верному псу Хатико?", new List<TestForGods.Option>()
               {
                 new TestForGods.Option("Намбоку",null, false),
-                new Option ("Великобритания", "В Великобритании черная кошка считается символом удачи. Британцы верят, черный кот дарит богатсво и процветание", true),
+                new Option ("Асакуса", null, false),
                 new Option("Сибуя", "Станция Хатико стоит на станции Сибуя и является местом втречи многих влюбленных.", true),
                 new Option ("Синдзюку", null, false),
               }),
@@ -73,10 +73,10 @@ namespace TestForGods
               ,
               new Question ("Персик, крсавец лабрадор, недавно перенес операцию по кастрации. Какой корм рекомендуется добавить в рацион питомцу?", new List<TestForGods.Option>()
               {
-                new TestForGods.Option("PRO PLAN® ALL SIZES ADULT PERFORMANCE","Идеален для собак с активным образом жизни, часто бывающих на открытом воздухе, - например, в горах или даже просто в парке", true),
-                new Option ("PRO PLAN® ALL SIZES ADULT PERFORMANCE",null, true),
-                new Option("PRO PLAN® ALL SIZES ADULT PERFORMANCE", null, true),
-                new Option ("PRO PLAN® ALL SIZES ADULT PERFORMANCE", null, true),
+                new TestForGods.Option("PRO PLAN® ALL SIZES ADULT LIGHT/STERILISED","подходит для стерилизованных собак всех пород", true),
+                new Option ("PRO PLAN® SMALL & MINI PUPPY c комплексом OPTISTART®",null, false),
+                new Option("PRO PLAN® ALL SIZES ADULT PERFORMANCE", null, false),
+                new Option ("PURINA® DOG CHOW", null, false),
               })
               ,
               new Question ("Мейн-кун Сири покорил своих хозяев добротой и красивой, гладкой, длинной шерсткой. Какой корм поможет хозяевам поддерживать природную красоту и ухоженность их питомца?", new List<TestForGods.Option>()
@@ -88,7 +88,7 @@ namespace TestForGods
               })
           };
         }
-        public List<Question> ListQuestion()
+        public List<Question> GetListQuestion()
         {
             return ListOfAsk; 
         }

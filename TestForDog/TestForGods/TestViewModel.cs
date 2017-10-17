@@ -8,34 +8,71 @@ using System.Threading.Tasks;
 namespace TestForGods
 {
     
-    class TestViewModel : INotifyPropertyChanged
+    public class TestViewModel : INotifyPropertyChanged
     {
-        const int QUESTIONSAMOUNT=10;
-        string COLORTRUE = "#FF2E6C47";
-        string COLORFALSE = "#FFE84B43";
-        string TRANSPARENT = "Transparent";
-
-
+        
         
         private Question currentquestion;
         private List<Question> questions;
-       private int index=0;
+       private int index;
+       private int countTrueAnser;
 
-        int countTrueAnser = 0;
+        public int Index
+        {
+            get
+            {
+                return index;
+            }
+            set
+            {
+                this.index = value;
+                DoPropertyChanged("Index");
+            }
+        }
+        public int CountTrueAnser
+        {
+            get
+            {
+                return countTrueAnser;
+            }
+            set
+            {
+                this.countTrueAnser = value;
+                DoPropertyChanged("CountTrueAnser");
+            }
+        }
 
 
-          
         public TestViewModel()
         {
-            
-            questions = new List<Question>();
-            move();
+
+            newTest();
 
         }
+
+        private void newTest()
+        {
+            Index = 0;
+            countTrueAnser = 0;
+            LoadAsk t = new LoadAsk();
+            questions = t.GetListQuestion();
+            move();
+            
+        }
+
          public void move()
         {
-            index++;
-            currentquestion = questions[index];
+            Index++;
+            if (index<11)
+            {
+                CurrentQuestion = questions[index-1];
+            }
+            else
+            {
+                newTest();
+                //открытие результатов 
+            }
+
 
         }
          
@@ -47,7 +84,7 @@ namespace TestForGods
             }
         }
 
-        public Question Question
+        public Question CurrentQuestion
         {
             get
             {
@@ -56,7 +93,7 @@ namespace TestForGods
             set
             {
                 this.currentquestion = value;
-                DoPropertyChanged("Question");
+                DoPropertyChanged("CurrentQuestion");
             }
         }
         //переход
@@ -82,7 +119,7 @@ namespace TestForGods
                 return click ??
                   (click = new RelayCommand(obj =>
                   {
-                      int  ans = (int)obj;
+                      int  ans = int.Parse( obj.ToString());
                       choose(ans);
                       
                   }));

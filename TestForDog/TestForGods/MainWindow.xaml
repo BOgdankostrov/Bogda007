@@ -82,7 +82,7 @@
                                 <StackPanel.RenderTransform>
                                     <ScaleTransform ScaleX="1.3"></ScaleTransform>
                                 </StackPanel.RenderTransform>
-                                <TextBlock Text="1" FontFamily="Fonts/Source Sans Pro/#Source Sans Pro" Style="{StaticResource CountStyle}"></TextBlock>
+                                <TextBlock Text="{Binding Index}" FontFamily="Fonts/Source Sans Pro/#Source Sans Pro" Style="{StaticResource CountStyle}"></TextBlock>
                                 <TextBlock Margin="5,0,0,0" Text="/" FontFamily="Fonts/Source Sans Pro/#Source Sans Pro" Style="{StaticResource CountStyle}"></TextBlock>
                                 <TextBlock Margin="5,0,0,0" Text="10" FontFamily="Fonts/Source Sans Pro/#Source Sans Pro" Style="{StaticResource CountStyle}"></TextBlock>
                             </StackPanel>
@@ -103,7 +103,7 @@
                                            FontSize="55" 
                                            FontWeight="Light" 
                                            TextWrapping="Wrap" 
-                                           Text="Какая страна считается рекордсменом по количеству проживающих в ней кошек?">
+                                           Text="{Binding CurrentQuestion.QuestionText}">
                                 </TextBlock>
                             </Grid>
                             <Grid Grid.Row="2" Margin="60,0,0,40">
@@ -116,58 +116,102 @@
                                     <ColumnDefinition Width="1*"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0" Grid.Row="0">
-                                    <Button Height="Auto">
+                                    <Button Height="Auto" Command="{Binding Click}" CommandParameter="0">
                                         <Grid Height="Auto">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="120"/>
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
-                                            <Ellipse Width="75" Height="75" Stroke="#FFE84B43" StrokeThickness="3" Fill="{Binding}"></Ellipse>
-                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="Содержит кошачьи феромоны" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48"></TextBlock>
+                                            <Ellipse Width="75" Height="75" Stroke="#FFE84B43" StrokeThickness="3" Fill="{Binding CurrentQuestion.options[0].Color }"></Ellipse>
+                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="{Binding CurrentQuestion.options[0].Value }" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48"></TextBlock>
                                         </Grid>
                                     </Button>
                                 </Grid>
                                 <Grid Grid.Column="1" Grid.Row="0">
-                                    <Button Height="Auto">
+                                    <Button Height="Auto" Command="{Binding Click}" CommandParameter="1">
                                         <Grid Height="Auto">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="120"/>
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
-                                            <Ellipse Width="75" Height="75" Stroke="#FFE84B43" StrokeThickness="3" Fill="{Binding}"></Ellipse>
-                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="Содержит кошачьи феромоны" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48"></TextBlock>
+                                            <Ellipse Width="75" Height="75" Stroke="#FFE84B43" StrokeThickness="3" Fill="{Binding CurrentQuestion.options[1].Color }"></Ellipse>
+                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="{Binding CurrentQuestion.options[1].Value }" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48"></TextBlock>
                                         </Grid>
                                     </Button>
                                 </Grid>
                                 <Grid Grid.Column="0" Grid.Row="1">
-                                    <Button Height="Auto">
+                                    <Button Height="Auto" Command="{Binding Click}" CommandParameter="2">
                                         <Grid Height="Auto">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="120"/>
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
-                                            <Ellipse Width="75" Height="75" Stroke="#FFE84B43" StrokeThickness="3" Fill="{Binding}"></Ellipse>
-                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="Содержит кошачьи феромоны" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48"></TextBlock>
+                                            <Ellipse Width="75" Height="75" Stroke="#FFE84B43" StrokeThickness="3" Fill="{Binding CurrentQuestion.options[2].Color }"></Ellipse>
+                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="{Binding CurrentQuestion.options[2].Value }" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48"></TextBlock>
                                         </Grid>
                                     </Button>
                                 </Grid>
                                 <Grid Grid.Column="1" Grid.Row="1">
-                                    <Button Height="Auto">
+                                    <Button Height="Auto" Command="{Binding Click}" CommandParameter="3">
                                         <Grid Height="Auto">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="120"/>
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
-                                            <Ellipse Width="75" Height="75" Stroke="#FFE84B43" StrokeThickness="3" Fill="{Binding}"></Ellipse>
-                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="Содержит кошачьи феромоны" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48"></TextBlock>
+                                            <Ellipse Width="75" Height="75" Stroke="#FFE84B43" StrokeThickness="3" Fill="{Binding CurrentQuestion.options[3].Color }"></Ellipse>
+                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="{Binding CurrentQuestion.options[3].Value }" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48"></TextBlock>
                                         </Grid>
                                     </Button>
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <Button Grid.Column="2">
+                        <Button Grid.Column="2" Command="{Binding Next}">
                             <Image Source="Images/all.jpg" Width="113"></Image>
                         </Button>
+                        <Grid Grid.ColumnSpan="3" Width="400" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,680,0,0" Visibility="Collapsed">
+                            <Border HorizontalAlignment="Right" Background="#FF2E6C47" Width="Auto" CornerRadius="20" Padding="20" Margin="0,0,40,0" MaxWidth="360">
+                                <TextBlock TextWrapping="Wrap" 
+                                           FontSize="22" 
+                                           FontFamily="Fonts/Scada/#Scada"
+                                           Text="США по праву может считаться 'кошачьим Китаем'. Количество мурчащих жителей здесь составляет 76,5 миллионов. В среднем в каждой третьей семье живет по 2 кошки."
+                                           Foreground="#ffffff">
+                                </TextBlock>
+                            </Border>
+                            <Polygon Points="0,0,65,0,20,40,0,0" Fill="#FF2E6C47" HorizontalAlignment="Right"></Polygon>
+                        </Grid>
+                        <Grid Grid.ColumnSpan="3" Width="400" Height="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,0,60" Visibility="Collapsed">
+                            <Border HorizontalAlignment="Right" Background="#FF2E6C47" Width="Auto" CornerRadius="20" Padding="20" Margin="0,0,40,0" MaxWidth="360">
+                                <TextBlock TextWrapping="Wrap" 
+                                           FontSize="22" 
+                                           FontFamily="Fonts/Scada/#Scada"
+                                           Text="США по праву может считаться 'кошачьим Китаем'. Количество мурчащих жителей здесь составляет 76,5 миллионов. В среднем в каждой третьей семье живет по 2 кошки."
+                                           Foreground="#ffffff">
+                                </TextBlock>
+                            </Border>
+                            <Polygon Points="0,40,65,40,20,0,0,40" Fill="#FF2E6C47" VerticalAlignment="Bottom" HorizontalAlignment="Right"></Polygon>
+                        </Grid>
+                        <Grid Grid.ColumnSpan="3" Width="380" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,680,20,0" Visibility="Collapsed">
+                            <Border HorizontalAlignment="Left" Background="#FF2E6C47" Width="Auto" CornerRadius="20" Padding="20" Margin="40,0,0,0" MaxWidth="340">
+                                <TextBlock TextWrapping="Wrap" 
+                                           FontSize="22" 
+                                           FontFamily="Fonts/Scada/#Scada"
+                                           Text="США по праву может считаться 'кошачьим Китаем'. Количество мурчащих жителей здесь составляет 76,5 миллионов. В среднем в каждой третьей семье живет по 2 кошки."
+                                           Foreground="#ffffff">
+                                </TextBlock>
+                            </Border>
+                            <Polygon Points="0,0,65,0,45,40,0,0" Fill="#FF2E6C47" VerticalAlignment="Top" HorizontalAlignment="Left"></Polygon>
+                        </Grid>
+                        <Grid Grid.ColumnSpan="3" Width="380" Height="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,40">
+                            <Border HorizontalAlignment="Left" Background="#FF2E6C47" Width="Auto" CornerRadius="20" Padding="20" Margin="40,0,0,0" MaxWidth="340">
+                                <TextBlock TextWrapping="Wrap" 
+                                           FontSize="22" 
+                                           FontFamily="Fonts/Scada/#Scada"
+                                           Text="США по праву может считаться 'кошачьим Китаем'. Количество мурчащих жителей здесь составляет 76,5 миллионов. В среднем в каждой третьей семье живет по 2 кошки."
+                                           Foreground="#ffffff">
+                                </TextBlock>
+                            </Border>
+                            <Polygon Points="0,40,65,40,45,0,0,40" Fill="#FF2E6C47" VerticalAlignment="Bottom" HorizontalAlignment="Left"></Polygon>
+                        </Grid>
                     </Grid>
                 </Border>
             </Grid>
