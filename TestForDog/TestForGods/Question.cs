@@ -10,8 +10,20 @@ namespace TestForGods
 {
    public class Question:INotifyPropertyChanged
     {
-      
-      const  string  COLORTRUE = "#FF2E6C47";
+        private string _imagesource;
+        public string ImageSource
+        {
+            get
+            {
+                return _imagesource;
+            }
+            set
+            {
+                this._imagesource = value;
+                DoPropertyChanged("ImageSource");
+            }
+        }
+        const  string  COLORTRUE = "#FF2E6C47";
       const  string COLORFALSE = "#FFE84B43";
         const string HIDDDEN = "Hidden";
         const string VISIBILITY = "Visibility";
@@ -31,10 +43,11 @@ namespace TestForGods
             }
         }
         public List<Option> options { get; set; }
-        public Question(string question, List<Option> listOptions)
+        public Question(string question, List<Option> listOptions, string imagesource)
         {
             this.question = question;
             this.options = listOptions;
+            ImageSource = imagesource; 
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
