@@ -11,6 +11,12 @@ namespace TestForGods
     class TestViewModel : INotifyPropertyChanged
     {
         const int QUESTIONSAMOUNT=10;
+        string COLORTRUE = "#FF2E6C47";
+        string COLORFALSE = "#FFE84B43";
+        string TRANSPARENT = "Transparent";
+
+
+        
         private Question currentquestion;
         private List<Question> questions;
        private int index=0;
@@ -35,8 +41,12 @@ namespace TestForGods
          
         public void choose(int i)
         {
-            //if(currentquestion.)
+            if(currentquestion.CheckAnswer(i))
+            {
+                countTrueAnser++;
+            }
         }
+
         public Question Question
         {
             get
@@ -49,6 +59,36 @@ namespace TestForGods
                 DoPropertyChanged("Question");
             }
         }
+        //переход
+        private RelayCommand next;
+        public RelayCommand Next
+        {
+            get
+            {
+                return next ??
+                  (next = new RelayCommand(obj =>
+                  {
+                      move();
+                  }));
+            }
+        }
+
+        // выбор ответа 
+        private RelayCommand click;
+        public RelayCommand Click
+        {
+            get
+            {
+                return click ??
+                  (click = new RelayCommand(obj =>
+                  {
+                      int  ans = (int)obj;
+                      choose(ans);
+                      
+                  }));
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void DoPropertyChanged(string name)
         {
