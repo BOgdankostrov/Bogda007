@@ -1,0 +1,42 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:TestForGods.Resources">
+    <Storyboard x:Key="LowerOpacity">
+        <DoubleAnimation From="1" To="0" Storyboard.TargetProperty="Opacity" Duration="0:0:0.5"></DoubleAnimation>
+        <ObjectAnimationUsingKeyFrames Duration="0:0:0.5" Storyboard.TargetProperty="Visibility">
+            <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Collapsed}"></DiscreteObjectKeyFrame>
+        </ObjectAnimationUsingKeyFrames>
+    </Storyboard>
+    <Style TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border>
+                        <ContentPresenter/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="BeginButton" TargetType="Button">
+        <Setter Property="Foreground" Value="#ffffff"></Setter>
+        <Setter Property="FontSize" Value="48"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="52" Background="#FFE84B43">
+                        <ContentPresenter/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="TextBlock">
+        <Setter Property="Foreground" Value="#646464"></Setter>
+    </Style>
+    <Style x:Key="CountStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="68"></Setter>
+        <Setter Property="Foreground" Value="#FFE84B43"/>
+        <Setter Property="FontFamily" Value="Open Sans"/>
+    </Style>
+</ResourceDictionary>

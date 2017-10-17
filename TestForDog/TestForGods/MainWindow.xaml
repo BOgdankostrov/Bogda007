@@ -5,8 +5,148 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestForGods"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Width="1920" Height="1080" WindowState="Maximized">
+    <Window.DataContext>
+        <local:TestViewModel></local:TestViewModel>
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/MainResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Width="1920" Height="1080">
+            <Grid.Resources>
+                <DataTemplate x:Key="ChooseTemplate">
+                    <Button>
+                        <Grid>
+                            
+                        </Grid>
+                    </Button>
+                </DataTemplate>
+            </Grid.Resources>
+            <Grid x:Name="FinalPage"></Grid>
+            <Grid x:Name="TestPage">
+                <Border BorderThickness="0,20,0,40" BorderBrush="#FFE84B43">
+                    <Grid Margin="0,60,0,0" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="1200"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Height="520" VerticalAlignment="Top">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Image Source="Images/logo.jpg" Width="265" Margin="0,25,0,0" VerticalAlignment="Top"></Image>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                                <StackPanel.RenderTransform>
+                                    <ScaleTransform ScaleX="1.3"></ScaleTransform>
+                                </StackPanel.RenderTransform>
+                                <TextBlock Text="1" FontFamily="Fonts/Source Sans Pro/#Source Sans Pro" Style="{StaticResource CountStyle}"></TextBlock>
+                                <TextBlock Margin="5,0,0,0" Text="/" FontFamily="Fonts/Source Sans Pro/#Source Sans Pro" Style="{StaticResource CountStyle}"></TextBlock>
+                                <TextBlock Margin="5,0,0,0" Text="10" FontFamily="Fonts/Source Sans Pro/#Source Sans Pro" Style="{StaticResource CountStyle}"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="500"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid Height="500" VerticalAlignment="Top">
+                                <Image x:Name="TestPicture" Height="480" Margin="0,0,0,20" Source="Images/ImageForTest/1.jpg"></Image>
+                            </Grid>
+                            <Grid Height="170" Grid.Row="1" Width="{Binding ElementName=TestPicture, Path=ActualWidth}">
+                                <TextBlock FontFamily="Fonts/Scada/#Scada" 
+                                           VerticalAlignment="Center" 
+                                           Foreground="#000000" 
+                                           FontSize="55" 
+                                           FontWeight="Light" 
+                                           TextWrapping="Wrap" 
+                                           Text="Какая страна считается рекордсменом по количеству проживающих в ней кошек?">
+                                </TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="2" Margin="60,0,0,40">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0" Grid.Row="0">
+                                    <Button Height="Auto">
+                                        <Grid Height="Auto">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="120"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Ellipse Width="75" Height="75" Stroke="#FFE84B43" StrokeThickness="3" Fill="{Binding}"></Ellipse>
+                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="Содержит кошачьи феромоны" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48"></TextBlock>
+                                        </Grid>
+                                    </Button>
+                                </Grid>
+                                <Grid Grid.Column="1" Grid.Row="0">
+                                    <Button Height="Auto">
+                                        <Grid Height="Auto">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="120"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Ellipse Width="75" Height="75" Stroke="#FFE84B43" StrokeThickness="3" Fill="{Binding}"></Ellipse>
+                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="Содержит кошачьи феромоны" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48"></TextBlock>
+                                        </Grid>
+                                    </Button>
+                                </Grid>
+                                <Grid Grid.Column="0" Grid.Row="1">
+                                    <Button Height="Auto">
+                                        <Grid Height="Auto">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="120"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Ellipse Width="75" Height="75" Stroke="#FFE84B43" StrokeThickness="3" Fill="{Binding}"></Ellipse>
+                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="Содержит кошачьи феромоны" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48"></TextBlock>
+                                        </Grid>
+                                    </Button>
+                                </Grid>
+                                <Grid Grid.Column="1" Grid.Row="1">
+                                    <Button Height="Auto">
+                                        <Grid Height="Auto">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="120"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Ellipse Width="75" Height="75" Stroke="#FFE84B43" StrokeThickness="3" Fill="{Binding}"></Ellipse>
+                                            <TextBlock Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" Text="Содержит кошачьи феромоны" FontFamily="Fonts/Scada/#Scada" VerticalAlignment="Center" FontSize="48"></TextBlock>
+                                        </Grid>
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Button Grid.Column="2">
+                            <Image Source="Images/all.jpg" Width="113"></Image>
+                        </Button>
+                    </Grid>
+                </Border>
+            </Grid>
+            <Grid x:Name="FirstPage" Visibility="Collapsed">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Images/first.jpg"></ImageBrush>
+                </Grid.Background>
+                <Button Width="448" Height="105" Click="BeginButton_Click" Style="{StaticResource BeginButton}" Margin="0,400,0,0">
+                    <TextBlock Margin="0,0,0,10" Text="Начать тест" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Medium" FontFamily="Open Sans">
+                        <TextBlock.RenderTransform>
+                            <ScaleTransform ScaleY="1.12"></ScaleTransform>
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                </Button>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
 </Window>
