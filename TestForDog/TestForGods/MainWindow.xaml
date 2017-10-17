@@ -18,7 +18,7 @@
     </Window.Resources>
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid Width="1920" Height="1080">
-            <Grid x:Name="FinalPage">
+            <Grid x:Name="FinalPage" >
                 <Border BorderThickness="0,20,0,40" BorderBrush="#FFE84B43">
                     <Grid Margin="0,60,0,0" VerticalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
@@ -37,7 +37,7 @@
                                 <TextBlock FontWeight="Bold" FontFamily="Fonts/Scada/#Scada" Foreground="Black" Text="грессивный ветеринар!" FontSize="75" ></TextBlock>
                             </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <TextBlock VerticalAlignment="Bottom" Margin="0,0,15,0" Foreground="#FFE84B43" FontFamily="Fonts/Source Sans Pro/#Source Sans Pro" FontWeight="Regular" FontSize="140" Text="8">
+                                    <TextBlock VerticalAlignment="Bottom" Margin="0,0,15,0" Foreground="#FFE84B43" FontFamily="Fonts/Source Sans Pro/#Source Sans Pro" FontWeight="Regular" FontSize="140" Text="{Binding CountTrueAnser}">
                                         <TextBlock.RenderTransform>
                                             <ScaleTransform CenterX="40"></ScaleTransform>
                                         </TextBlock.RenderTransform>
@@ -64,7 +64,7 @@
                     </Grid>
                 </Border>
             </Grid>
-            <Grid x:Name="TestPage" Visibility="Collapsed">
+            <Grid x:Name="TestPage" Visibility="Visible">
                 <Border BorderThickness="0,20,0,40" BorderBrush="#FFE84B43">
                     <Grid Margin="0,60,0,0" VerticalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
@@ -215,7 +215,7 @@
                     </Grid>
                 </Border>
             </Grid>
-            <Grid x:Name="FirstPage" Visibility="Collapsed">
+            <Grid x:Name="FirstPage" Visibility="Visible">
                 <Grid.Background>
                     <ImageBrush ImageSource="Images/first.jpg"></ImageBrush>
                 </Grid.Background>

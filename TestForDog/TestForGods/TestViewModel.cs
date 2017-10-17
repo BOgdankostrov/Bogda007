@@ -16,6 +16,8 @@ namespace TestForGods
         private List<Question> questions;
        private int index;
        private int countTrueAnser;
+        private bool step = false;
+        
 
         public int Index
         {
@@ -57,19 +59,22 @@ namespace TestForGods
             LoadAsk t = new LoadAsk();
             questions = t.GetListQuestion();
             move();
+            step = false;
             
         }
 
          public void move()
         {
+
             Index++;
             if (index<11)
             {
+                step = false;
                 CurrentQuestion = questions[index-1];
             }
             else
             {
-                newTest();
+                
                 //открытие результатов 
             }
 
@@ -78,9 +83,11 @@ namespace TestForGods
          
         public void choose(int i)
         {
+            if(step!=true)
             if(currentquestion.CheckAnswer(i))
             {
-                countTrueAnser++;
+                CountTrueAnser++;
+                    step = true;
             }
         }
 
@@ -94,6 +101,19 @@ namespace TestForGods
             {
                 this.currentquestion = value;
                 DoPropertyChanged("CurrentQuestion");
+            }
+        }
+        //переход к начальной странице
+        private RelayCommand newGame;
+        public RelayCommand NewGame
+        {
+            get
+            {
+                return newGame ??
+                  (newGame = new RelayCommand(obj =>
+                  {
+                      newTest();
+                  }));
             }
         }
         //переход
