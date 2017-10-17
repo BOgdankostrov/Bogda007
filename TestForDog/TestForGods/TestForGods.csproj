@@ -68,6 +68,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Resources\MainResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -87,6 +91,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\Source Sans Pro\SourceSansProLight.ttf" />
+    <Resource Include="Fonts\Source Sans Pro\SourceSansProRegular.ttf" />
+    <Resource Include="Fonts\Source Sans Pro\SourceSansProBold.ttf" />
+    <Resource Include="Fonts\Scada\Scada.ttf" />
+    <Resource Include="Fonts\Scada\Scada_bold.ttf" />
+    <Resource Include="Fonts\Scada\Scada_bold_italic.ttf" />
+    <Resource Include="Fonts\Scada\Scada_italic.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -95,6 +106,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\first.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ImageForTest\1.jpg" />
+    <Resource Include="Images\ImageForTest\10.jpg" />
+    <Resource Include="Images\ImageForTest\2.jpg" />
+    <Resource Include="Images\ImageForTest\3.jpg" />
+    <Resource Include="Images\ImageForTest\4.jpg" />
+    <Resource Include="Images\ImageForTest\5.jpg" />
+    <Resource Include="Images\ImageForTest\6.jpg" />
+    <Resource Include="Images\ImageForTest\7.jpg" />
+    <Resource Include="Images\ImageForTest\8.jpg" />
+    <Resource Include="Images\ImageForTest\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\button.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\all.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
