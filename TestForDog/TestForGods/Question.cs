@@ -10,6 +10,7 @@ namespace TestForGods
 {
    public class Question:INotifyPropertyChanged
     {
+      
       const  string  COLORTRUE = "#FF2E6C47";
       const  string COLORFALSE = "#FFE84B43";
         const string HIDDDEN = "Hidden";
