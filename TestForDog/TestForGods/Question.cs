@@ -14,9 +14,21 @@ namespace TestForGods
       const  string COLORFALSE = "#FFE84B43";
         const string HIDDDEN = "Hidden";
         const string VISIBILITY = "Visibility";
-     // const  string TRANSPARENT = "Transparent";
+        // const  string TRANSPARENT = "Transparent";
 
-        public string question { get; set; }
+        private string question;
+        public string QuestionText
+        {
+            get
+            {
+                return question;
+            }
+            set
+            {
+                this.question = value;
+                DoPropertyChanged("Question");
+            }
+        }
         public List<Option> options { get; set; }
         public Question(string question, List<Option> listOptions)
         {
